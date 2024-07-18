@@ -45,6 +45,8 @@ You can check out the live demo of the app [(https://youtu.be/unVSeuo8Uso)].
 To run this project locally, follow these steps:
 
 cd frontend
+
+
 cd backend 
 1. **Install the dependencies:**
 
