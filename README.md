@@ -7,6 +7,11 @@ Frontend/
 │   ├── index.html
 │   └── ...
 ├── src/
+│   ├── commpenents│├── create,delete,editing,home,login,private,readnote,register,track
+│   ├── Headers
+│   ├── assets
+│   ├── contexts
+│   ├── main.js
 │   ├── App.css
 │   ├── App.js
 │   ├── App.test.js
