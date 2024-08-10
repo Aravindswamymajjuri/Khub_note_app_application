@@ -41,7 +41,7 @@ export default function EditingNote(props)
     function handleSubmit(event)
     {
         event.preventDefault();
-        fetch("http://127.0.0.1:8000/notes/"+ loggeddetails.loggedUser.userid+"/" +props.value?.title,{
+        fetch("https://notes-application-yam2.onrender.com/notes/"+ loggeddetails.loggedUser.userid+"/" +props.value?.title,{
             method:"PUT",
             body:JSON.stringify(editDetails),
             headers:
