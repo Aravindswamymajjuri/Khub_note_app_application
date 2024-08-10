@@ -23,7 +23,7 @@ export default function Register()
     function handleSubmit(event) {
         event.preventDefault();
     
-        fetch("http://127.0.0.1:8000/register", {
+        fetch("https://notes-application-yam2.onrender.com/register", {
             method: "POST",
             body: JSON.stringify(userDetails),
             headers: {
