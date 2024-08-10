@@ -27,7 +27,7 @@ const NotesComponent = () => {
 
 
     const fetchNotes = () => {
-        fetch(`http://127.0.0.1:8000/notes/${loggeddetails.loggedUser.userid}`, {
+        fetch(`https://notes-application-yam2.onrender.com/notes/${loggeddetails.loggedUser.userid}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${loggeddetails.loggedUser.token}`,
