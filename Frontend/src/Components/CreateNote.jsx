@@ -26,7 +26,7 @@ export default function CreateNote()
     function handleSubmit(event)
     {
         event.preventDefault();
-        fetch("http://127.0.0.1:8000/notes/"+ loggeddetails.loggedUser.userid,{
+        fetch("https://notes-application-yam2.onrender.com/notes/"+ loggeddetails.loggedUser.userid,{
 
             method:"POST",
             body:JSON.stringify(UserContent),
