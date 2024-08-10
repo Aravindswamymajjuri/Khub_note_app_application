@@ -32,7 +32,7 @@ export default function Login()
     {
         event.preventDefault();
         
-        fetch("http://127.0.0.1:8000/login",{
+        fetch("https://notes-application-yam2.onrender.com/login",{
             method:"POST",
             body:JSON.stringify(userCred),
             headers:{
