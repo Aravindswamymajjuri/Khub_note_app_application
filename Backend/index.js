@@ -12,9 +12,9 @@ const noteModel = require('./modules/noteModel');
 // database connection
 
 
-mongoose.connect("mongodb://localhost:27017/noteapp")
+mongoose.connect("mongodb+srv://aravindswamymajjuri143:xCuKYeBVOQyv0QdL@projects.m06dc.mongodb.net/?retryWrites=true&w=majority&appName=Projects")
 .then(()=>{
-    console.log("connection sucessfully")
+    console.log("Atlas connection sucessfully")
 })
 .catch((err)=>{
     console.log(err)
@@ -44,8 +44,9 @@ app.post("/register", async (req, res) => {
                         user.password = hpass;
                         try {
                             let doc = await userModel.create(user);
-                            res.status(201).send({ message: "User registered" });
-                        } catch (err) {
+                            res.status(201).send({ message: "User registered sucessfully" });
+                        } 
+                        catch (err) {
                             res.status(500).send({ message: "Some issue" });
                         }
                     }
