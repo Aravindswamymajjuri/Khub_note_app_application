@@ -7,12 +7,33 @@ const userModel = require('./modules/userModel');
 const verifytoken = require('./verifytoken');
 const noteModel = require('./modules/noteModel');
 
-
+// Configure CORS
+const allowedOrigins = [
+  'http://localhost:2000',
+  'http://127.0.0.1:2000',
+  'https://notes-application-yam2.onrender.com',
+  'https://www.notes-application-yam2.onrender.com'
+];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      // For development you may want to allow all origins by calling callback(null, true)
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
 
 // database connection
 
 
-mongoose.connect("mongodb+srv://aravindswamymajjuri143:xCuKYeBVOQyv0QdL@projects.m06dc.mongodb.net/?retryWrites=true&w=majority&appName=Projects")
+mongoose.connect("mongodb+srv://Healthcare:Healthcare@healthcare.v60erxm.mongodb.net/")
 .then(()=>{
     console.log("Atlas connection sucessfully")
 })
@@ -23,7 +44,9 @@ mongoose.connect("mongodb+srv://aravindswamymajjuri143:xCuKYeBVOQyv0QdL@projects
 
 const app = express();
 
-app.use(cors());  //userd for cors policy
+// Enable CORS with explicit options and handle preflight
+app.use(cors(corsOptions));  // used for CORS policy
+app.options('*', cors(corsOptions)); // enable pre-flight for all routes
 
 app.use(express.json());
 
@@ -187,8 +210,9 @@ app.put("/notes/:id/:title",verifytoken,async(req,res)=>{
 
 
 
-app.listen(8000,()=>{
-    console.log("server running")
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, ()=>{
+    console.log(`server running on port ${PORT}`);
 })
 
 
