@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+// Polyfill for Node versions where `SlowBuffer` is removed (e.g., Node 25)
+const buffer = require('buffer');
+if (!buffer.SlowBuffer) buffer.SlowBuffer = buffer.Buffer;
 const jwt= require('jsonwebtoken');
 const cors = require('cors');
 const userModel = require('./modules/userModel');
